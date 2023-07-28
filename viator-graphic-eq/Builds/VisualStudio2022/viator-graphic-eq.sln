@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio Version 17
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "viator-graphic-eq - Standalone Plugin", "viator-graphic-eq_StandalonePlugin.vcxproj", "{42289BC3-1137-3F5B-0366-DBFAF2F0F9BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DCE6F288-6F2D-05F1-EEAF-017072B69970} = {DCE6F288-6F2D-05F1-EEAF-017072B69970}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "viator-graphic-eq - VST3", "viator-graphic-eq_VST3.vcxproj", "{D7A98A2D-8DE6-564C-7DAB-D392C0B42199}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DCE6F288-6F2D-05F1-EEAF-017072B69970} = {DCE6F288-6F2D-05F1-EEAF-017072B69970}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "viator-graphic-eq - Shared Code", "viator-graphic-eq_SharedCode.vcxproj", "{DCE6F288-6F2D-05F1-EEAF-017072B69970}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7A98A2D-8DE6-564C-7DAB-D392C0B42199}.Debug|x64.ActiveCfg = Debug|x64
+		{D7A98A2D-8DE6-564C-7DAB-D392C0B42199}.Debug|x64.Build.0 = Debug|x64
+		{D7A98A2D-8DE6-564C-7DAB-D392C0B42199}.Release|x64.ActiveCfg = Release|x64
+		{D7A98A2D-8DE6-564C-7DAB-D392C0B42199}.Release|x64.Build.0 = Release|x64
+		{42289BC3-1137-3F5B-0366-DBFAF2F0F9BA}.Debug|x64.ActiveCfg = Debug|x64
+		{42289BC3-1137-3F5B-0366-DBFAF2F0F9BA}.Debug|x64.Build.0 = Debug|x64
+		{42289BC3-1137-3F5B-0366-DBFAF2F0F9BA}.Release|x64.ActiveCfg = Release|x64
+		{42289BC3-1137-3F5B-0366-DBFAF2F0F9BA}.Release|x64.Build.0 = Release|x64
+		{DCE6F288-6F2D-05F1-EEAF-017072B69970}.Debug|x64.ActiveCfg = Debug|x64
+		{DCE6F288-6F2D-05F1-EEAF-017072B69970}.Debug|x64.Build.0 = Debug|x64
+		{DCE6F288-6F2D-05F1-EEAF-017072B69970}.Release|x64.ActiveCfg = Release|x64
+		{DCE6F288-6F2D-05F1-EEAF-017072B69970}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
