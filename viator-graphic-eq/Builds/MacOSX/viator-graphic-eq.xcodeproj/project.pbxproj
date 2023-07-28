@@ -42,6 +42,7 @@
 		39F5B00ED853114DB09AB96D /* AudioToolbox.framework */ = {isa = PBXBuildFile; fileRef = 731BE15DDCAD450C615DAADA; };
 		3A4CFE390CA3ED54AD7813ED /* CoreAudio.framework */ = {isa = PBXBuildFile; fileRef = F59B13B0560C9AE89219F318; };
 		3F6C8B454815A57C48E1F6FE /* WebKit.framework */ = {isa = PBXBuildFile; fileRef = 2E3C7647C430805C86909827; };
+		54CB6E336C307FBD7B387E49 /* Parameters.cpp */ = {isa = PBXBuildFile; fileRef = 0BB815B655A0F9C74F187EE5; };
 		587FD4D6893EF0CEF3B163BF /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = 8E34E8A6AD0DBB7C5C7A5575; };
 		5B4CC8652836549807929DE2 /* include_juce_gui_extra.mm */ = {isa = PBXBuildFile; fileRef = D4A8C01824BD6B58BDB85759; };
 		6316935F087BD3EB7F7E3E18 /* BinaryData7.cpp */ = {isa = PBXBuildFile; fileRef = DF463DE3B917ACEB7DDDC7E2; };
@@ -65,6 +66,7 @@
 		CC3CF378FC7A56492AC3CBFC /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXBuildFile; fileRef = D23D3DE8F07413FF81F58F2A; };
 		CFCC8BD2DD413AC67E06C566 /* include_juce_audio_plugin_client_utils.cpp */ = {isa = PBXBuildFile; fileRef = 5E581D7BAAC5F776065D8D8D; };
 		D193FD63C44B9D98E4B0554A /* RecentFilesMenuTemplate.nib */ = {isa = PBXBuildFile; fileRef = F33DCEE70735554658A26852; };
+		D1ABC2DFD45B7675440DC7C5 /* Globals.cpp */ = {isa = PBXBuildFile; fileRef = B3E2F257FA4C816A74585631; };
 		E387EB43AD0C0AECDF7EADAC /* AU */ = {isa = PBXBuildFile; fileRef = C5F12A2BC8FEC21F35709537; };
 		E41277C4528B6E3A65C6DCF7 /* include_juce_audio_basics.mm */ = {isa = PBXBuildFile; fileRef = A7D85A0E06E19A3EAA092BF2; };
 		E760331E167E2BE010B9B97D /* include_viator_modules.cpp */ = {isa = PBXBuildFile; fileRef = 0650EC60AAF6A1F5C305F35A; };
@@ -82,6 +84,7 @@
 		0650EC60AAF6A1F5C305F35A /* include_viator_modules.cpp */ /* include_viator_modules.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_viator_modules.cpp; path = ../../JuceLibraryCode/include_viator_modules.cpp; sourceTree = SOURCE_ROOT; };
 		067AE9D66B62C2D0C175BBDF /* scale_vu-meterno_name.png */ /* scale_vu-meterno_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scale_vu-meterno_name.png"; path = "../../Source/Assets/vu-meter/scale_vu-meterno_name.png"; sourceTree = SOURCE_ROOT; };
 		071FF6D3DA24D1192B1D132E /* Shared Code */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libviator-graphic-eq.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BB815B655A0F9C74F187EE5 /* Parameters.cpp */ /* Parameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Parameters.cpp; path = ../../Source/Globals/Parameters.cpp; sourceTree = SOURCE_ROOT; };
 		0FC4641A167F9FE27A286568 /* JucePluginDefines.h */ /* JucePluginDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JucePluginDefines.h; path = ../../JuceLibraryCode/JucePluginDefines.h; sourceTree = SOURCE_ROOT; };
 		114B8D75D5161353DE3F5ACC /* PluginProcessor.h */ /* PluginProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginProcessor.h; path = ../../Source/PluginProcessor.h; sourceTree = SOURCE_ROOT; };
 		16882376ACF120E20AA21E57 /* BinaryData6.cpp */ /* BinaryData6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryData6.cpp; path = ../../JuceLibraryCode/BinaryData6.cpp; sourceTree = SOURCE_ROOT; };
@@ -96,6 +99,7 @@
 		30BF03E9B109CDF1CFDA2BA4 /* juce_gui_basics */ /* juce_gui_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_basics; path = ../../../modules/JUCE/modules/juce_gui_basics; sourceTree = SOURCE_ROOT; };
 		3DF949F621337625A1596932 /* Knob_07.png */ /* Knob_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_07.png; path = ../../Source/Assets/knobs/Knob_07.png; sourceTree = SOURCE_ROOT; };
 		3F93958133DD2B8F4E77C0AD /* Knob_03.png */ /* Knob_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_03.png; path = ../../Source/Assets/knobs/Knob_03.png; sourceTree = SOURCE_ROOT; };
+		40A4E4A68DF90CD271F256CD /* Parameters.h */ /* Parameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Parameters.h; path = ../../Source/Globals/Parameters.h; sourceTree = SOURCE_ROOT; };
 		44B7A6C4DA0DE9ED9FC838E1 /* juce_audio_formats */ /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = ../../../modules/JUCE/modules/juce_audio_formats; sourceTree = SOURCE_ROOT; };
 		47587E481B5ADA0FF5E32382 /* Ver_flat_slider.png */ /* Ver_flat_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ver_flat_slider.png; path = ../../Source/Assets/faders/Ver_flat_slider.png; sourceTree = SOURCE_ROOT; };
 		505474777ACD2221BD51CFF4 /* back_vu-meter_decore5.png */ /* back_vu-meter_decore5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_vu-meter_decore5.png"; path = "../../Source/Assets/vu-meter/back_vu-meter_decore5.png"; sourceTree = SOURCE_ROOT; };
@@ -141,11 +145,13 @@
 		B21AC4B56A3AF3206856678B /* Ver_slider.png */ /* Ver_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ver_slider.png; path = ../../Source/Assets/faders/Ver_slider.png; sourceTree = SOURCE_ROOT; };
 		B2AE46343CD0F9DCB9049CC5 /* AudioUnit.framework */ /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		B310EA6679ADB3D83D0971C7 /* VST3 */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "viator-graphic-eq.vst3"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E2F257FA4C816A74585631 /* Globals.cpp */ /* Globals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Globals.cpp; path = ../../Source/Globals/Globals.cpp; sourceTree = SOURCE_ROOT; };
 		BA0B657176ABC3E53FF1820D /* include_juce_audio_plugin_client_VST_utils.mm */ /* include_juce_audio_plugin_client_VST_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_VST_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_VST_utils.mm; sourceTree = SOURCE_ROOT; };
 		BA643C48DB2F0099B0BC53BE /* Knob_06.png */ /* Knob_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_06.png; path = ../../Source/Assets/knobs/Knob_06.png; sourceTree = SOURCE_ROOT; };
 		BA672990B0A4BC8E30661257 /* Standalone Plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viator-graphic-eq.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA71D6015BA6732BE4A0EDB /* include_juce_audio_plugin_client_Standalone.cpp */ /* include_juce_audio_plugin_client_Standalone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_Standalone.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp; sourceTree = SOURCE_ROOT; };
 		C01457F0DD74BB2AA8F272F3 /* Knob_09.png */ /* Knob_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_09.png; path = ../../Source/Assets/knobs/Knob_09.png; sourceTree = SOURCE_ROOT; };
+		C566F6B22E9A996AC928E2AD /* Globals.h */ /* Globals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = ../../Source/Globals/Globals.h; sourceTree = SOURCE_ROOT; };
 		C5F12A2BC8FEC21F35709537 /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "viator-graphic-eq.component"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8189AD686FCFA28415C2C8 /* PluginEditor.cpp */ /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
 		CE1B2CD058EE09686965A3AE /* PluginProcessor.cpp */ /* PluginProcessor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginProcessor.cpp; path = ../../Source/PluginProcessor.cpp; sourceTree = SOURCE_ROOT; };
@@ -380,6 +386,17 @@
 			name = knobs;
 			sourceTree = "<group>";
 		};
+		81A5795369A231533D416F1C /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				B3E2F257FA4C816A74585631,
+				C566F6B22E9A996AC928E2AD,
+				0BB815B655A0F9C74F187EE5,
+				40A4E4A68DF90CD271F256CD,
+			);
+			name = Globals;
+			sourceTree = "<group>";
+		};
 		8915E91AB2A083454B80387B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +411,7 @@
 		9B538862335F0E01EC9B19C9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				81A5795369A231533D416F1C,
 				4DE71F4363F9AB2FC58F89DD,
 				CE1B2CD058EE09686965A3AE,
 				114B8D75D5161353DE3F5ACC,
@@ -694,6 +712,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1ABC2DFD45B7675440DC7C5,
+				54CB6E336C307FBD7B387E49,
 				C6C07BE293EAB71A2502FD66,
 				0F2EA77E7B78F026F0B4133A,
 				1A91773C3D8DBA0F5BD5B85D,

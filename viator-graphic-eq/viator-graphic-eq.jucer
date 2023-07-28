@@ -5,6 +5,12 @@
               pluginName="Graphic EQ" companyName="Viator DSP">
   <MAINGROUP id="Fz7Q2X" name="viator-graphic-eq">
     <GROUP id="{A301957A-C65B-B863-4A56-05F49634D213}" name="Source">
+      <GROUP id="{6068BA45-1AD2-8144-7F96-0B42E8065C81}" name="Globals">
+        <FILE id="mUyhKF" name="Globals.cpp" compile="1" resource="0" file="Source/Globals/Globals.cpp"/>
+        <FILE id="vB91qd" name="Globals.h" compile="0" resource="0" file="Source/Globals/Globals.h"/>
+        <FILE id="qcUxq4" name="Parameters.cpp" compile="1" resource="0" file="Source/Globals/Parameters.cpp"/>
+        <FILE id="B2U8H0" name="Parameters.h" compile="0" resource="0" file="Source/Globals/Parameters.h"/>
+      </GROUP>
       <GROUP id="{AFFEED2A-B299-F6B0-2524-13AE0A461408}" name="Assets">
         <GROUP id="{E7F2059A-1260-11E1-58D4-37EFC6271EE1}" name="decor">
           <FILE id="qad7dp" name="decor_grid.png" compile="0" resource="1" file="Source/Assets/decor/decor_grid.png"/>

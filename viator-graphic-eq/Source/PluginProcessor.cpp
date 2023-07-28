@@ -20,12 +20,47 @@ ViatorgraphiceqAudioProcessor::ViatorgraphiceqAudioProcessor()
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
                        )
+, _treeState(*this, nullptr, "PARAMETERS", createParameterLayout())
 #endif
 {
+    // sliders
+    for (int i = 0; i < _parameterMap.getSliderParams().size(); i++)
+    {
+        _treeState.addParameterListener(_parameterMap.getSliderParams()[i].paramID, this);
+    }
+    
+    // buttons
+    for (int i = 0; i < _parameterMap.getButtonParams().size(); i++)
+    {
+        _treeState.addParameterListener(_parameterMap.getButtonParams()[i]._id, this);
+    }
+    
+    // menus
+    for (int i = 0; i < _parameterMap.getMenuParams().size(); i++)
+    {
+        _treeState.addParameterListener(_parameterMap.getMenuParams()[i].ID, this);
+    }
 }
 
 ViatorgraphiceqAudioProcessor::~ViatorgraphiceqAudioProcessor()
 {
+    // sliders
+    for (int i = 0; i < _parameterMap.getSliderParams().size(); i++)
+    {
+        _treeState.removeParameterListener(_parameterMap.getSliderParams()[i].paramID, this);
+    }
+    
+    // buttons
+    for (int i = 0; i < _parameterMap.getButtonParams().size(); i++)
+    {
+        _treeState.removeParameterListener(_parameterMap.getButtonParams()[i]._id, this);
+    }
+    
+    // menus
+    for (int i = 0; i < _parameterMap.getMenuParams().size(); i++)
+    {
+        _treeState.removeParameterListener(_parameterMap.getMenuParams()[i].ID, this);
+    }
 }
 
 //==============================================================================
@@ -90,11 +125,154 @@ void ViatorgraphiceqAudioProcessor::changeProgramName (int index, const juce::St
 {
 }
 
+juce::AudioProcessorValueTreeState::ParameterLayout ViatorgraphiceqAudioProcessor::createParameterLayout()
+{
+    std::vector <std::unique_ptr<juce::RangedAudioParameter>> params;
+    
+    // sliders
+    for (int i = 0; i < _parameterMap.getSliderParams().size(); i++)
+    {
+        auto param = _parameterMap.getSliderParams()[i];
+        
+        if (param.isInt == ViatorParameters::SliderParameterData::NumericType::kInt)
+        {
+            auto range = juce::NormalisableRange<float>(param.min, param.max);
+            
+            if (param.isSkew == ViatorParameters::SliderParameterData::SkewType::kSkew)
+            {
+                range.setSkewForCentre(param.center);
+            }
+            
+            params.push_back (std::make_unique<juce::AudioProcessorValueTreeState::Parameter>(juce::ParameterID { param.paramID, 1 }, param.name, param.name, range, param.initial, valueToTextFunctionInt, textToValueFunction));
+        }
+        
+        else
+        {
+            auto range = juce::NormalisableRange<float>(param.min, param.max, 0.1f);
+            
+            if (param.isSkew == ViatorParameters::SliderParameterData::SkewType::kSkew)
+            {
+                range.setSkewForCentre(param.center);
+            }
+            
+            params.push_back (std::make_unique<juce::AudioProcessorValueTreeState::Parameter>(juce::ParameterID { param.paramID, 1 }, param.name, param.name, range, param.initial, valueToTextFunctionFloat, textToValueFunction));
+        }
+    }
+    
+    // buttons
+    for (int i = 0; i < _parameterMap.getButtonParams().size(); i++)
+    {
+        auto param = _parameterMap.getButtonParams()[i];
+        params.push_back (std::make_unique<juce::AudioParameterBool>(juce::ParameterID { param._id, 1 }, param._name, false));
+    }
+    
+    // menus
+    for (int i = 0; i < _parameterMap.getMenuParams().size(); i++)
+    {
+        auto param = _parameterMap.getMenuParams()[i];
+        params.push_back (std::make_unique<juce::AudioParameterInt>(juce::ParameterID { param.ID, 1 }, param.name, param.min, param.max, param.defaultIndex));
+    }
+        
+    return { params.begin(), params.end() };
+}
+
+void ViatorgraphiceqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue)
+
+{
+    updateParameters();
+}
+
+void ViatorgraphiceqAudioProcessor::updateParameters()
+{
+    // input
+    _inputProcessor.setGainDecibels(_treeState.getRawParameterValue(ViatorParameters::inputID)->load());
+    
+    // filters
+    _lpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kCutoff, _treeState.getRawParameterValue(ViatorParameters::lowpassID)->load());
+    _hpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kCutoff, _treeState.getRawParameterValue(ViatorParameters::highpassID)->load());
+    
+    // eq
+    _eqGains.clear();
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band1GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band2GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band3GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band4GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band5GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band6GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band7GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band8GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band9GainID)->load());
+    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band10GainID)->load());
+    
+    jassert(_eqCutoffs.size() == _eqFilters.size());
+    
+    // set gains
+    for (int i = 0; i < _eqFilters.size(); i++)
+    {
+        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _eqGains[i]);
+    }
+    
+    // calculate Q's
+    _eqQs.clear();
+    for (int i = 0; i < _eqGains.size(); ++i)
+    {
+        float currentQ = std::abs(_eqGains[i]) * 0.04;
+        _eqQs.push_back(currentQ);
+    }
+    
+    jassert(_eqQs.size() == _eqFilters.size());
+    
+    // set Q's
+    for (int i = 0; i < _eqQs.size(); i++)
+    {
+        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, _eqQs[i]);
+    }
+    
+    // drive
+    auto rawDrive = _treeState.getRawParameterValue(ViatorParameters::driveID)->load();
+    _drive.store(juce::Decibels::decibelsToGain(rawDrive));
+    
+    // output
+    _outputProcessor.setGainDecibels(_treeState.getRawParameterValue(ViatorParameters::outputID)->load());
+}
+
 //==============================================================================
 void ViatorgraphiceqAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
+    _spec.maximumBlockSize = samplesPerBlock;
+    _spec.numChannels = getTotalNumInputChannels();
+    _spec.sampleRate = sampleRate;
+    
+    _inputProcessor.prepare(_spec);
+    _inputProcessor.setRampDurationSeconds(0.02);
+    
+    _eqFilters.clear();
+    for (int i = 0; i < 10; i++)
+    {
+        _eqFilters.add(std::make_unique<viator_dsp::SVFilter<float>>());
+        _eqFilters[i]->prepare(_spec);
+        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kType, viator_dsp::SVFilter<float>::FilterType::kBandShelf);
+        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQType, viator_dsp::SVFilter<float>::QType::kParametric);
+        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kCutoff, _eqCutoffs[i]);
+    }
+    
+    _eqGains.reserve(10);
+    _eqGains.clear();
+    _eqQs.reserve(10);
+    _eqQs.clear();
+    
+    _lpFilter.prepare(_spec);
+    _lpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kType, viator_dsp::SVFilter<float>::FilterType::kLowPass);
+    _lpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kQType, viator_dsp::SVFilter<float>::QType::kParametric);
+    
+    _hpFilter.prepare(_spec);
+    _hpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kType, viator_dsp::SVFilter<float>::FilterType::kHighPass);
+    _hpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kQType, viator_dsp::SVFilter<float>::QType::kParametric);
+    
+    _outputProcessor.prepare(_spec);
+    _outputProcessor.setRampDurationSeconds(0.02);
+    
+    updateParameters();
 }
 
 void ViatorgraphiceqAudioProcessor::releaseResources()
@@ -106,56 +284,51 @@ void ViatorgraphiceqAudioProcessor::releaseResources()
 #ifndef JucePlugin_PreferredChannelConfigurations
 bool ViatorgraphiceqAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
-  #if JucePlugin_IsMidiEffect
-    juce::ignoreUnused (layouts);
-    return true;
-  #else
-    // This is the place where you check if the layout is supported.
-    // In this template code we only support mono or stereo.
-    // Some plugin hosts, such as certain GarageBand versions, will only
-    // load plugins that support stereo bus layouts.
-    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
-     && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
-        return false;
-
-    // This checks if the input layout matches the output layout
-   #if ! JucePlugin_IsSynth
-    if (layouts.getMainOutputChannelSet() != layouts.getMainInputChannelSet())
-        return false;
-   #endif
-
-    return true;
-  #endif
+    return layouts.getMainOutputChannelSet() == juce::AudioChannelSet::mono()
+        || layouts.getMainOutputChannelSet() == juce::AudioChannelSet::stereo();
 }
 #endif
 
 void ViatorgraphiceqAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
-
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    // mono to stereo
+    if (getTotalNumInputChannels() == 1 && getTotalNumOutputChannels() == 2)
     {
-        auto* channelData = buffer.getWritePointer (channel);
+        // copy main left input to main stereo out
+        for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
+        {
+            auto* mainSamplesIn = buffer.getWritePointer(0);
+            auto* mainSamplesOut = buffer.getWritePointer(channel);
 
-        // ..do something to the data...
+            for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+            {
+                mainSamplesOut[sample] = mainSamplesIn[sample];
+            }
+        }
     }
+    
+    juce::dsp::AudioBlock<float> block {buffer};
+    
+    // input
+    _inputProcessor.process(juce::dsp::ProcessContextReplacing<float>(block));
+    
+    // filters
+    _lpFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+    _hpFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+    for (auto& filter : _eqFilters)
+    {
+        filter->process(juce::dsp::ProcessContextReplacing<float>(block));
+    }
+    
+    // drive
+    if (_drive.load() > 1.0)
+    {
+        viator_utils::utils::multiplyBlock(block, _drive.load());
+        viator_utils::utils::softClipBlock(block);
+    }
+    
+    // output
+    _outputProcessor.process(juce::dsp::ProcessContextReplacing<float>(block));
 }
 
 //==============================================================================
@@ -166,21 +339,29 @@ bool ViatorgraphiceqAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* ViatorgraphiceqAudioProcessor::createEditor()
 {
-    return new ViatorgraphiceqAudioProcessorEditor (*this);
+    //return new ViatorgraphiceqAudioProcessorEditor (*this);
+    return new juce::GenericAudioProcessorEditor (*this);
 }
 
 //==============================================================================
 void ViatorgraphiceqAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    _treeState.state.appendChild(variableTree, nullptr);
+    juce::MemoryOutputStream stream(destData, false);
+    _treeState.state.writeToStream (stream);
 }
 
 void ViatorgraphiceqAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+    auto tree = juce::ValueTree::readFromData (data, size_t(sizeInBytes));
+    variableTree = tree.getChildWithName("Variables");
+    
+    if (tree.isValid())
+    {
+        _treeState.state = tree;
+        _width = variableTree.getProperty("width");
+        _height = variableTree.getProperty("height");
+    }
 }
 
 //==============================================================================

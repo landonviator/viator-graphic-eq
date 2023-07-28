@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="viator-graphic-eq\Source\Globals">
+      <UniqueIdentifier>{53144B17-45C2-C3AA-82DF-BBD740ADF936}</UniqueIdentifier>
+    </Filter>
     <Filter Include="viator-graphic-eq\Source\Assets\decor">
       <UniqueIdentifier>{F5044997-D224-0B24-2314-4F536B05B721}</UniqueIdentifier>
     </Filter>
@@ -655,6 +658,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Globals\Globals.cpp">
+      <Filter>viator-graphic-eq\Source\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Globals\Parameters.cpp">
+      <Filter>viator-graphic-eq\Source\Globals</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>viator-graphic-eq\Source</Filter>
     </ClCompile>
@@ -3261,6 +3270,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Globals\Globals.h">
+      <Filter>viator-graphic-eq\Source\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Globals\Parameters.h">
+      <Filter>viator-graphic-eq\Source\Globals</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>viator-graphic-eq\Source</Filter>
     </ClInclude>

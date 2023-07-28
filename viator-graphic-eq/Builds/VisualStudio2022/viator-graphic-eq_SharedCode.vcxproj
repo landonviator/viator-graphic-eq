@@ -139,6 +139,8 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Globals\Globals.cpp"/>
+    <ClCompile Include="..\..\Source\Globals\Parameters.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\..\modules\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -2564,6 +2566,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_viator_modules.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Globals\Globals.h"/>
+    <ClInclude Include="..\..\Source\Globals\Parameters.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\modules\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
