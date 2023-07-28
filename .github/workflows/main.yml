@@ -142,15 +142,8 @@ jobs:
         run: |
           Pluginval\pluginval.exe --strictness-level 5 --validate-in-process --verbose --validate viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.vst3 || exit 1
 
-      - name: Delete useless Windows files
-        run: |
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\resources.res
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.exp
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.iobj
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.pdb
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.vst3.recipe
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq_VST3.log
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq_VST3.vcxproj.FileListAbsolute.txt
+      #- name: Delete useless Windows files
+       # run: |
 
       - name: Upload Windows VST3
         uses: actions/upload-artifact@v3
