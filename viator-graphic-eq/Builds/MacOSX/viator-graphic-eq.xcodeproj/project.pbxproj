@@ -145,7 +145,6 @@
 		BA643C48DB2F0099B0BC53BE /* Knob_06.png */ /* Knob_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_06.png; path = ../../Source/Assets/knobs/Knob_06.png; sourceTree = SOURCE_ROOT; };
 		BA672990B0A4BC8E30661257 /* Standalone Plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viator-graphic-eq.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA71D6015BA6732BE4A0EDB /* include_juce_audio_plugin_client_Standalone.cpp */ /* include_juce_audio_plugin_client_Standalone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_Standalone.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp; sourceTree = SOURCE_ROOT; };
-		BD69E16765CD4617787FBF89 /* viator_modules */ /* viator_modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = viator_modules; path = ../../../modules/viatordsp/viator_modules/viator_modules; sourceTree = SOURCE_ROOT; };
 		C01457F0DD74BB2AA8F272F3 /* Knob_09.png */ /* Knob_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_09.png; path = ../../Source/Assets/knobs/Knob_09.png; sourceTree = SOURCE_ROOT; };
 		C5F12A2BC8FEC21F35709537 /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "viator-graphic-eq.component"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8189AD686FCFA28415C2C8 /* PluginEditor.cpp */ /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
@@ -162,6 +161,7 @@
 		DC4BE0A0A30902209489A76C /* Knob_04.png */ /* Knob_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Knob_04.png; path = ../../Source/Assets/knobs/Knob_04.png; sourceTree = SOURCE_ROOT; };
 		DF463DE3B917ACEB7DDDC7E2 /* BinaryData7.cpp */ /* BinaryData7.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryData7.cpp; path = ../../JuceLibraryCode/BinaryData7.cpp; sourceTree = SOURCE_ROOT; };
 		E185797409840A8885506156 /* decor_grid.png */ /* decor_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = decor_grid.png; path = ../../Source/Assets/decor/decor_grid.png; sourceTree = SOURCE_ROOT; };
+		E5B34B4871DC5947DB19CB6B /* viator_modules */ /* viator_modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = viator_modules; path = ../../JuceLibraryCode/modules/viator_modules; sourceTree = SOURCE_ROOT; };
 		E6A150617CC633D5C457A138 /* include_juce_audio_devices.mm */ /* include_juce_audio_devices.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_devices.mm; path = ../../JuceLibraryCode/include_juce_audio_devices.mm; sourceTree = SOURCE_ROOT; };
 		E9FC0E5CCD23CAC16950E4AA /* IOKit.framework */ /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		EB5191D7D247B5502C74532E /* juce_audio_utils */ /* juce_audio_utils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_utils; path = ../../../modules/JUCE/modules/juce_audio_utils; sourceTree = SOURCE_ROOT; };
@@ -250,7 +250,7 @@
 				7E0F24545D296A784532F011,
 				30BF03E9B109CDF1CFDA2BA4,
 				5DC19AF147949C1D0E094912,
-				BD69E16765CD4617787FBF89,
+				E5B34B4871DC5947DB19CB6B,
 			);
 			name = "JUCE Modules";
 			sourceTree = "<group>";
@@ -872,7 +872,7 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
@@ -880,7 +880,7 @@
 				INFOPLIST_PREPROCESS = NO;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-lviator-graphic-eq -weak_framework Metal -weak_framework MetalKit";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
 				PRODUCT_NAME = "viator-graphic-eq";
@@ -993,14 +993,14 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-weak_framework Metal -weak_framework MetalKit";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
 				PRODUCT_NAME = "viator-graphic-eq";
@@ -1108,7 +1108,7 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
@@ -1117,7 +1117,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/Components/";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lviator-graphic-eq -weak_framework Metal -weak_framework MetalKit";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
@@ -1321,7 +1321,7 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
@@ -1331,7 +1331,7 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lviator-graphic-eq -weak_framework Metal -weak_framework MetalKit";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
@@ -1440,7 +1440,7 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
@@ -1450,7 +1450,7 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lviator-graphic-eq -weak_framework Metal -weak_framework MetalKit";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
 				PRODUCT_NAME = "viator-graphic-eq";
@@ -1558,7 +1558,7 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
@@ -1567,7 +1567,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/VST3/";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lviator-graphic-eq -weak_framework Metal -weak_framework MetalKit";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
 				PRODUCT_NAME = "viator-graphic-eq";
@@ -1673,13 +1673,13 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-weak_framework Metal -weak_framework MetalKit";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
 				PRODUCT_NAME = "viator-graphic-eq";
@@ -1784,14 +1784,14 @@
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../../modules/JUCE/modules",
-					"$(SRCROOT)/../../../modules/viatordsp/viator_modules",
+					"$(SRCROOT)/../../JuceLibraryCode/modules",
 					"$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../../modules/viatordsp/viator_modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
+				MTL_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../modules/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(SRCROOT)/../../../modules/JUCE/modules $(SRCROOT)/../../JuceLibraryCode/modules $(SRCROOT)/../../../modules/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-lviator-graphic-eq -weak_framework Metal -weak_framework MetalKit";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ViatorDSP.viatorgraphiceq;
 				PRODUCT_NAME = "viator-graphic-eq";
