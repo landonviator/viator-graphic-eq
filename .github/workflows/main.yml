@@ -145,7 +145,6 @@ jobs:
       - name: Delete useless Windows files
         run: |
           rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\resources.res
-          rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-s.FCED6316.tlog
           rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.exp
           rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.iobj
           rm -R viator-graphic-eq\Builds\VisualStudio2022\x64\Release\VST3\viator-graphic-eq.pdb
