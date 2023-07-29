@@ -62,14 +62,23 @@ namespace BinaryData
     extern const char*   vu_meter_png;
     const int            vu_meter_pngSize = 5705215;
 
-    extern const char*   back_a_png;
-    const int            back_a_pngSize = 3176564;
+    extern const char*   back_png;
+    const int            back_pngSize = 3495783;
 
     extern const char*   but_small_rec_off_png;
     const int            but_small_rec_off_pngSize = 13091;
 
     extern const char*   but_small_rec_on_png;
     const int            but_small_rec_on_pngSize = 11697;
+
+    extern const char*   hor_flat_slider_png;
+    const int            hor_flat_slider_pngSize = 210933;
+
+    extern const char*   Knob_mid_png;
+    const int            Knob_mid_pngSize = 7163291;
+
+    extern const char*   Knob_small_png;
+    const int            Knob_small_pngSize = 2227450;
 
     extern const char*   landon_png;
     const int            landon_pngSize = 26270;
@@ -81,7 +90,7 @@ namespace BinaryData
     const int            screen_pngSize = 69252;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 24;
+    const int namedResourceListSize = 27;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

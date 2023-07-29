@@ -5,6 +5,10 @@
               pluginName="Graphic EQ" companyName="Viator DSP">
   <MAINGROUP id="Fz7Q2X" name="viator-graphic-eq">
     <GROUP id="{A301957A-C65B-B863-4A56-05F49634D213}" name="Source">
+      <GROUP id="{CD09B330-74D9-1870-D5E0-142ED685480A}" name="components">
+        <FILE id="oPSOxP" name="Header.cpp" compile="1" resource="0" file="Source/components/Header.cpp"/>
+        <FILE id="TGILHu" name="Header.h" compile="0" resource="0" file="Source/components/Header.h"/>
+      </GROUP>
       <GROUP id="{6068BA45-1AD2-8144-7F96-0B42E8065C81}" name="Globals">
         <FILE id="mUyhKF" name="Globals.cpp" compile="1" resource="0" file="Source/Globals/Globals.cpp"/>
         <FILE id="vB91qd" name="Globals.h" compile="0" resource="0" file="Source/Globals/Globals.h"/>
@@ -42,11 +46,15 @@
                 file="Source/Assets/vu-meter/scale_vu-meterno_name.png"/>
           <FILE id="u2bQuY" name="vu_meter.png" compile="0" resource="1" file="Source/Assets/vu-meter/vu_meter.png"/>
         </GROUP>
-        <FILE id="Y6lT5P" name="back_a.png" compile="0" resource="1" file="Source/Assets/back_a.png"/>
+        <FILE id="BumzPB" name="back.png" compile="0" resource="1" file="Source/Assets/back.png"/>
         <FILE id="RovBvX" name="but_small_rec_off.png" compile="0" resource="1"
               file="Source/Assets/but_small_rec_off.png"/>
         <FILE id="oghuUW" name="but_small_rec_on.png" compile="0" resource="1"
               file="Source/Assets/but_small_rec_on.png"/>
+        <FILE id="rBIBs4" name="hor_flat_slider.png" compile="0" resource="1"
+              file="Source/Assets/hor_flat_slider.png"/>
+        <FILE id="f7u0cP" name="Knob_mid.png" compile="0" resource="1" file="Source/Assets/Knob_mid.png"/>
+        <FILE id="JeM7Ib" name="Knob_small.png" compile="0" resource="1" file="Source/Assets/Knob_small.png"/>
         <FILE id="hN8T7Y" name="landon.png" compile="0" resource="1" file="Source/Assets/landon.png"/>
         <FILE id="J7FHSW" name="LED_meter.png" compile="0" resource="1" file="Source/Assets/LED_meter.png"/>
         <FILE id="NSjgMx" name="screen.png" compile="0" resource="1" file="Source/Assets/screen.png"/>

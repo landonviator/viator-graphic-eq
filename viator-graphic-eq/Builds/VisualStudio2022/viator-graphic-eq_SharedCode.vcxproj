@@ -139,6 +139,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\components\Header.cpp"/>
     <ClCompile Include="..\..\Source\Globals\Globals.cpp"/>
     <ClCompile Include="..\..\Source\Globals\Parameters.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
@@ -2543,6 +2544,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData7.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData8.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData9.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData10.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -2566,6 +2568,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_viator_modules.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\components\Header.h"/>
     <ClInclude Include="..\..\Source\Globals\Globals.h"/>
     <ClInclude Include="..\..\Source\Globals\Parameters.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
@@ -3586,9 +3589,12 @@
     <None Include="..\..\Source\Assets\vu-meter\scale_vu-meter.png"/>
     <None Include="..\..\Source\Assets\vu-meter\scale_vu-meterno_name.png"/>
     <None Include="..\..\Source\Assets\vu-meter\vu_meter.png"/>
-    <None Include="..\..\Source\Assets\back_a.png"/>
+    <None Include="..\..\Source\Assets\back.png"/>
     <None Include="..\..\Source\Assets\but_small_rec_off.png"/>
     <None Include="..\..\Source\Assets\but_small_rec_on.png"/>
+    <None Include="..\..\Source\Assets\hor_flat_slider.png"/>
+    <None Include="..\..\Source\Assets\Knob_mid.png"/>
+    <None Include="..\..\Source\Assets\Knob_small.png"/>
     <None Include="..\..\Source\Assets\landon.png"/>
     <None Include="..\..\Source\Assets\LED_meter.png"/>
     <None Include="..\..\Source\Assets\screen.png"/>

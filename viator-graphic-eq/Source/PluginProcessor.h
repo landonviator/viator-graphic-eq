@@ -62,15 +62,19 @@ public:
     float _width = 0.0f;
     float _height = 0.0f;
     
+    void calculatePeakSignal(juce::AudioBuffer<float>& buffer);
+    float getCurrentPeakSignal();
+    
 private:
     
     // dsp
     juce::dsp::ProcessSpec _spec;
-    juce::OwnedArray<viator_dsp::SVFilter<float>> _eqFilters;
     std::vector<float> _eqCutoffs =
     {
-      31.0f, 63.0f, 125.0f, 250.0f, 500.0f, 1000.0f, 2000.0f, 4000.0f, 8000.0f, 15000.0f
+        31.0f, 63.0f, 125.0f, 250.0f, 500.0f, 1000.0f, 2000.0f, 4000.0f, 8000.0f, 15000.0f
     };
+    
+    juce::OwnedArray<viator_dsp::SVFilter<float>> _eqFilters;
     
     std::vector<float> _eqGains;
     std::vector<float> _eqQs;
@@ -96,6 +100,9 @@ private:
     static float textToValueFunction(const juce::String& str) { return str.getFloatValue(); }
     
     void updateParameters();
+    
+    juce::SmoothedValue<double> levelGain = -60.0;
+    float peakDB = -60.0;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ViatorgraphiceqAudioProcessor)
 };

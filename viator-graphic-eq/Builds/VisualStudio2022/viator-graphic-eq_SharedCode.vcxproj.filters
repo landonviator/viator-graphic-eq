@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="viator-graphic-eq\Source\components">
+      <UniqueIdentifier>{0F728FD1-4792-9C25-2B56-0B77FF9C6341}</UniqueIdentifier>
+    </Filter>
     <Filter Include="viator-graphic-eq\Source\Globals">
       <UniqueIdentifier>{53144B17-45C2-C3AA-82DF-BBD740ADF936}</UniqueIdentifier>
     </Filter>
@@ -658,6 +661,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\components\Header.cpp">
+      <Filter>viator-graphic-eq\Source\components</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Globals\Globals.cpp">
       <Filter>viator-graphic-eq\Source\Globals</Filter>
     </ClCompile>
@@ -3217,6 +3223,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData9.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData10.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -3270,6 +3279,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\components\Header.h">
+      <Filter>viator-graphic-eq\Source\components</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Globals\Globals.h">
       <Filter>viator-graphic-eq\Source\Globals</Filter>
     </ClInclude>
@@ -6326,13 +6338,22 @@
     <None Include="..\..\Source\Assets\vu-meter\vu_meter.png">
       <Filter>viator-graphic-eq\Source\Assets\vu-meter</Filter>
     </None>
-    <None Include="..\..\Source\Assets\back_a.png">
+    <None Include="..\..\Source\Assets\back.png">
       <Filter>viator-graphic-eq\Source\Assets</Filter>
     </None>
     <None Include="..\..\Source\Assets\but_small_rec_off.png">
       <Filter>viator-graphic-eq\Source\Assets</Filter>
     </None>
     <None Include="..\..\Source\Assets\but_small_rec_on.png">
+      <Filter>viator-graphic-eq\Source\Assets</Filter>
+    </None>
+    <None Include="..\..\Source\Assets\hor_flat_slider.png">
+      <Filter>viator-graphic-eq\Source\Assets</Filter>
+    </None>
+    <None Include="..\..\Source\Assets\Knob_mid.png">
+      <Filter>viator-graphic-eq\Source\Assets</Filter>
+    </None>
+    <None Include="..\..\Source\Assets\Knob_small.png">
       <Filter>viator-graphic-eq\Source\Assets</Filter>
     </None>
     <None Include="..\..\Source\Assets\landon.png">

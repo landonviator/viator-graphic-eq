@@ -179,7 +179,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout ViatorgraphiceqAudioProcesso
 void ViatorgraphiceqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue)
 
 {
-    updateParameters();
+    if (_eqFilters.size() == 10)
+    {
+        updateParameters();
+    }
 }
 
 void ViatorgraphiceqAudioProcessor::updateParameters()
@@ -192,41 +195,27 @@ void ViatorgraphiceqAudioProcessor::updateParameters()
     _hpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kCutoff, _treeState.getRawParameterValue(ViatorParameters::highpassID)->load());
     
     // eq
-    _eqGains.clear();
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band1GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band2GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band3GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band4GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band5GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band6GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band7GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band8GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band9GainID)->load());
-    _eqGains.push_back(_treeState.getRawParameterValue(ViatorParameters::band10GainID)->load());
+    _eqFilters[0]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band1GainID)->load());
+    _eqFilters[1]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band2GainID)->load());
+    _eqFilters[2]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band3GainID)->load());
+    _eqFilters[3]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band4GainID)->load());
+    _eqFilters[4]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band5GainID)->load());
+    _eqFilters[5]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band6GainID)->load());
+    _eqFilters[6]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band7GainID)->load());
+    _eqFilters[7]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band8GainID)->load());
+    _eqFilters[8]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band9GainID)->load());
+    _eqFilters[9]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _treeState.getRawParameterValue(ViatorParameters::band10GainID)->load());
     
-    jassert(_eqCutoffs.size() == _eqFilters.size());
-    
-    // set gains
-    for (int i = 0; i < _eqFilters.size(); i++)
-    {
-        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kGain, _eqGains[i]);
-    }
-    
-    // calculate Q's
-    _eqQs.clear();
-    for (int i = 0; i < _eqGains.size(); ++i)
-    {
-        float currentQ = std::abs(_eqGains[i]) * 0.04;
-        _eqQs.push_back(currentQ);
-    }
-    
-    jassert(_eqQs.size() == _eqFilters.size());
-    
-    // set Q's
-    for (int i = 0; i < _eqQs.size(); i++)
-    {
-        _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, _eqQs[i]);
-    }
+    _eqFilters[0]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band1GainID)->load()) * 0.04);
+    _eqFilters[1]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band2GainID)->load()) * 0.04);
+    _eqFilters[2]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band3GainID)->load()) * 0.04);
+    _eqFilters[3]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band4GainID)->load()) * 0.04);
+    _eqFilters[4]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band5GainID)->load()) * 0.04);
+    _eqFilters[5]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band6GainID)->load()) * 0.04);
+    _eqFilters[6]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band7GainID)->load()) * 0.04);
+    _eqFilters[7]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band8GainID)->load()) * 0.04);
+    _eqFilters[8]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band9GainID)->load()) * 0.04);
+    _eqFilters[9]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kQ, std::abs(_treeState.getRawParameterValue(ViatorParameters::band10GainID)->load()) * 0.04);
     
     // drive
     auto rawDrive = _treeState.getRawParameterValue(ViatorParameters::driveID)->load();
@@ -256,11 +245,6 @@ void ViatorgraphiceqAudioProcessor::prepareToPlay (double sampleRate, int sample
         _eqFilters[i]->setParameter(viator_dsp::SVFilter<float>::ParameterId::kCutoff, _eqCutoffs[i]);
     }
     
-    _eqGains.reserve(10);
-    _eqGains.clear();
-    _eqQs.reserve(10);
-    _eqQs.clear();
-    
     _lpFilter.prepare(_spec);
     _lpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kType, viator_dsp::SVFilter<float>::FilterType::kLowPass);
     _lpFilter.setParameter(viator_dsp::SVFilter<float>::ParameterId::kQType, viator_dsp::SVFilter<float>::QType::kParametric);
@@ -271,6 +255,8 @@ void ViatorgraphiceqAudioProcessor::prepareToPlay (double sampleRate, int sample
     
     _outputProcessor.prepare(_spec);
     _outputProcessor.setRampDurationSeconds(0.02);
+    
+    levelGain.reset(sampleRate, 0.5);
     
     updateParameters();
 }
@@ -329,6 +315,30 @@ void ViatorgraphiceqAudioProcessor::processBlock (juce::AudioBuffer<float>& buff
     
     // output
     _outputProcessor.process(juce::dsp::ProcessContextReplacing<float>(block));
+    
+    // get meter value
+    calculatePeakSignal(buffer);
+}
+
+void ViatorgraphiceqAudioProcessor::calculatePeakSignal(juce::AudioBuffer<float> &buffer)
+{
+    levelGain.skip(buffer.getNumSamples());
+    peakDB = buffer.getMagnitude(0, 0, buffer.getNumSamples());
+    
+    if (peakDB < levelGain.getCurrentValue())
+    {
+        levelGain.setTargetValue(peakDB);
+    }
+
+    else
+    {
+        levelGain.setCurrentAndTargetValue(peakDB);
+    }
+}
+
+float ViatorgraphiceqAudioProcessor::getCurrentPeakSignal()
+{
+    return juce::Decibels::gainToDecibels(levelGain.getNextValue());
 }
 
 //==============================================================================
@@ -339,8 +349,8 @@ bool ViatorgraphiceqAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* ViatorgraphiceqAudioProcessor::createEditor()
 {
-    //return new ViatorgraphiceqAudioProcessorEditor (*this);
-    return new juce::GenericAudioProcessorEditor (*this);
+    return new ViatorgraphiceqAudioProcessorEditor (*this);
+    //return new juce::GenericAudioProcessorEditor (*this);
 }
 
 //==============================================================================

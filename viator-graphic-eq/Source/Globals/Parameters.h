@@ -60,9 +60,8 @@ struct MenuParameterData
         std::vector<ViatorParameters::MenuParameterData>& getMenuParams(){return _menuParams;};
         
         // for attachments
-        std::vector<ViatorParameters::SliderParameterData>& getComp1SliderParams(){return _comp1Params;};
-        std::vector<ViatorParameters::SliderParameterData>& getComp2SliderParams(){return _comp2Params;};
-        std::vector<ViatorParameters::SliderParameterData>& getLimiterSliderParams(){return _limiterParams;};
+        std::vector<ViatorParameters::SliderParameterData>& getBandSliderParams(){return _bandSliderParams;};
+        std::vector<ViatorParameters::SliderParameterData>& getFilterSliderParams(){return _filterSliderParams;};
         std::vector<ViatorParameters::SliderParameterData>& getIOSliderParams(){return _ioSliderParams;};
         
         int getTotalNumberOfParams(){return static_cast<int>(_sliderParams.size()) + static_cast<int>(_buttonParams.size()) + static_cast<int>(_menuParams.size());}
@@ -81,9 +80,8 @@ struct MenuParameterData
         std::vector<ViatorParameters::MenuParameterData> _menuParams;
         
         // for attachments
-        std::vector<ViatorParameters::SliderParameterData> _comp1Params;
-        std::vector<ViatorParameters::SliderParameterData> _comp2Params;
-        std::vector<ViatorParameters::SliderParameterData> _limiterParams;
+        std::vector<ViatorParameters::SliderParameterData> _bandSliderParams;
+        std::vector<ViatorParameters::SliderParameterData> _filterSliderParams;
         std::vector<ViatorParameters::SliderParameterData> _ioSliderParams;
     };
 }
