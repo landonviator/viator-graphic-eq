@@ -35,7 +35,7 @@ ViatorgraphiceqAudioProcessorEditor::ViatorgraphiceqAudioProcessorEditor (Viator
     startTimer(20);
     
     // window
-    viator_utils::PluginWindow::setPluginWindowSize(getWidth(), getHeight(), *this, 2.0, 1.0);
+    viator_utils::PluginWindow::setPluginWindowSize(audioProcessor._width, audioProcessor._height, *this, 2.0, 1.0);
 }
 
 ViatorgraphiceqAudioProcessorEditor::~ViatorgraphiceqAudioProcessorEditor()
@@ -108,6 +108,9 @@ void ViatorgraphiceqAudioProcessorEditor::resized()
     auto vuWidth = getWidth() * 0.27;
     auto vuHeight = getHeight() * 0.37;
     _vuMeter.setBounds(vuX, vuY, vuWidth, vuHeight);
+    
+    // Save plugin size in value tree
+    savePluginBounds();
 }
 
 void ViatorgraphiceqAudioProcessorEditor::initBandSliders()
@@ -163,4 +166,12 @@ void ViatorgraphiceqAudioProcessorEditor::initBandLabels()
 void ViatorgraphiceqAudioProcessorEditor::timerCallback()
 {
     _vuMeter.getVUMeter().setValue(audioProcessor.getCurrentPeakSignal());
+}
+
+void ViatorgraphiceqAudioProcessorEditor::savePluginBounds()
+{
+    audioProcessor.variableTree.setProperty("width", getWidth(), nullptr);
+    audioProcessor.variableTree.setProperty("height", getHeight(), nullptr);
+    audioProcessor._width = getWidth();
+    audioProcessor._height = getHeight();
 }

@@ -51,6 +51,9 @@ private:
     viator_gui::VUMeter _vuMeter;
     
     void timerCallback() override;
+    
+    // Save plugin size in value tree
+    void savePluginBounds();
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ViatorgraphiceqAudioProcessorEditor)
 };
