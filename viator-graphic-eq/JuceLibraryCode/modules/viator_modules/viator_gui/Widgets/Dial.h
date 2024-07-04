@@ -35,7 +35,6 @@ public:
     
     void setDialValueType(viator_gui::CustomDial::ValueType newValueType);
     void setDialValueType(viator_gui::CustomDialLabel::ValueType newValueType);
-    void setNumFrames(const int newNumFrames);
 
 private:
     viator_gui::CustomDial _customDial;
@@ -53,7 +52,7 @@ private:
     juce::Colour _auxTextColor = juce::Colour::fromRGB(74, 81, 98).darker(0.5);
     juce::Colour _blackBackgroundColor = juce::Colour::fromRGB(33, 35, 37);
     
-    int _numFrames = 0;
+    const int _numFrames = 129;
     int frameWidth;
     int frameHeight;
     juce::Image _filmStrip;
